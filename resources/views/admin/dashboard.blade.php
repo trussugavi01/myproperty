@@ -10,9 +10,12 @@
         <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px;">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-between align-items-center text-white">
-                    <div>
+                    <div class="flex-grow-1">
                         <h3 class="mb-2 fw-bold">Admin Control Center 🎯</h3>
-                        <p class="mb-0 opacity-75">Monitor and manage the entire platform from here.</p>
+                        <p class="mb-3 opacity-75">Monitor and manage the entire platform from here.</p>
+                        <a href="{{ route('home') }}" target="_blank" class="btn btn-light btn-sm">
+                            <i class="fas fa-external-link-alt me-2"></i>View Website
+                        </a>
                     </div>
                     <div class="d-none d-md-block">
                         <i class="fas fa-shield-alt" style="font-size: 4rem; opacity: 0.2;"></i>
