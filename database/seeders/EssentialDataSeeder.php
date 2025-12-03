@@ -6,6 +6,7 @@ use App\Models\Amenity;
 use App\Models\Location;
 use App\Models\PropertyCategory;
 use App\Models\SubscriptionPlan;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class EssentialDataSeeder extends Seeder
@@ -20,6 +21,17 @@ class EssentialDataSeeder extends Seeder
         $this->seedCategories();
         $this->seedAmenities();
         $this->seedSubscriptionPlans();
+        $this->seedAdminUsers();
+    }
+    
+    private function seedAdminUsers(): void
+    {
+        // Set specific users as admin
+        $adminEmails = [
+            'chuksokezie@gmail.com',
+        ];
+        
+        User::whereIn('email', $adminEmails)->update(['role' => 'admin']);
     }
 
     private function seedLocations(): void
