@@ -1,16 +1,32 @@
 @extends('layouts.app')
 
 @section('title', 'Edit Property')
+@section('page-title', 'Edit Property')
 
 @section('content')
-<div class="container-fluid py-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white py-3">
-                    <h4 class="mb-0">Edit Property</h4>
+<!-- Header Section -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px;">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center text-white">
+                    <div>
+                        <h3 class="mb-2 fw-bold">Edit Property Listing ✏️</h3>
+                        <p class="mb-0 opacity-75">Update your property details and information.</p>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <i class="fas fa-edit" style="font-size: 4rem; opacity: 0.2;"></i>
+                    </div>
                 </div>
-                <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm animate-fade-in" style="border-radius: 16px;">
+            <div class="card-body p-4">
                     <form action="{{ route(auth()->user()->role . '.properties.update', $property) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
