@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "Property Listing Platform - Laravel 11",
+    "description": "LAFRIQUE Properties - Laravel 11",
     "keywords": ["laravel", "framework", "property", "real-estate"],
     "license": "MIT",
     "require": {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Property Listing Platform') }} - @yield('title', 'Dashboard')</title>
+    <title>{{ config('app.name', 'LAFRIQUE Properties') }} - @yield('title', 'Dashboard')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,11 +14,8 @@
         <!-- Sidebar -->
         <nav class="sidebar" id="sidebar" style="width: 260px;">
             <div class="p-4 border-bottom border-secondary">
-                <h4 class="text-white mb-0 d-flex align-items-center">
-                    <i class="fas fa-building me-2 text-primary"></i>
-                    <span class="fw-bold">Property.com.ng</span>
-                </h4>
-                <p class="text-white-50 small mb-0 mt-1">Property Management</p>
+                <img src="{{ asset('images/logo/lafrique-logo.png') }}" alt="LAFRIQUE Properties" class="mb-2" style="max-width: 180px; height: auto; filter: brightness(0) invert(1);">
+                <p class="text-white-50 small mb-0">Property Management</p>
             </div>
 
             <ul class="nav flex-column">

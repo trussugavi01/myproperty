@@ -3,7 +3,7 @@
 
 Hello {{ $user->name }},
 
-Thank you for joining **{{ config('app.name') }}**, Nigeria's premier property listing and management platform!
+Thank you for joining **{{ config('app.name') }}**, Africa's premier property listing and management platform!
 
 We're excited to have you on board. Here's what you can do with your account:
 
@@ -35,7 +35,7 @@ Go to Dashboard
 
 1. **Complete Your Profile:** Add your details and preferences
 2. **Explore Features:** Familiarize yourself with the platform
-3. **Get Support:** Contact us anytime at support@property.com.ng
+3. **Get Support:** Contact us anytime at support@propertieslafrique.com
 
 If you have any questions or need assistance, our support team is here to help!
 

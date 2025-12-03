@@ -62,7 +62,7 @@
 
     <div class="text-center mt-5">
         <p class="text-muted">All plans include basic support and property analytics</p>
-        <p class="text-muted">Need a custom plan? <a href="mailto:sales@propertyng.com">Contact us</a></p>
+        <p class="text-muted">Need a custom plan? <a href="mailto:sales@propertieslafrique.com">Contact us</a></p>
     </div>
 </div>
 @endsection

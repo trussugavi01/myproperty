@@ -33,7 +33,7 @@
                         <!-- Introduction -->
                         <div class="mb-5">
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">1. Introduction</h2>
-                            <p class="text-muted">Welcome to Property.com.ng ("we," "our," or "us"). These Terms and Conditions ("Terms") govern your access to and use of our website, mobile applications, and services (collectively, the "Platform"). By accessing or using our Platform, you agree to be bound by these Terms.</p>
+                            <p class="text-muted">Welcome to LAFRIQUE Properties ("we," "our," or "us"). These Terms and Conditions ("Terms") govern your access to and use of our website, mobile applications, and services (collectively, the "Platform"). By accessing or using our Platform, you agree to be bound by these Terms.</p>
                             <p class="text-muted">If you do not agree to these Terms, please do not use our Platform.</p>
                         </div>
 
@@ -59,7 +59,7 @@
                                 <li>Have the legal capacity to enter into binding contracts</li>
                                 <li>Provide accurate and complete registration information</li>
                                 <li>Maintain the security of your account credentials</li>
-                                <li>Comply with all applicable laws and regulations in Nigeria</li>
+                                <li>Comply with all applicable laws and regulations in your jurisdiction</li>
                             </ul>
                         </div>
 
@@ -103,7 +103,7 @@
                             <p class="text-muted">We offer various subscription plans with different features and pricing. By subscribing, you agree to pay the applicable fees as described on our pricing page.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">6.2 Payment Terms</h5>
-                            <p class="text-muted">All fees are payable in Nigerian Naira (NGN). Payments are processed through secure third-party payment processors. You authorize us to charge your payment method for all fees incurred.</p>
+                            <p class="text-muted">Payments are processed through secure third-party payment processors. You authorize us to charge your payment method for all fees incurred.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">6.3 Refund Policy</h5>
                             <p class="text-muted">Subscription fees are non-refundable except as required by law or as expressly stated in our refund policy. You may cancel your subscription at any time, but no refunds will be provided for the current billing period.</p>
@@ -134,13 +134,13 @@
                         <div class="mb-5">
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">8. Intellectual Property</h2>
                             <h5 class="fw-semibold mb-3">8.1 Platform Content</h5>
-                            <p class="text-muted">All content on the Platform, including text, graphics, logos, images, and software, is the property of Property.com.ng or its licensors and is protected by Nigerian and international copyright laws.</p>
+                            <p class="text-muted">All content on the Platform, including text, graphics, logos, images, and software, is the property of LAFRIQUE Properties or its licensors and is protected by international copyright laws.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">8.2 User Content</h5>
                             <p class="text-muted">By posting content on the Platform, you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and display such content for the purpose of operating and promoting the Platform.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">8.3 Trademarks</h5>
-                            <p class="text-muted">Property.com.ng and our logos are trademarks of our company. You may not use our trademarks without our prior written permission.</p>
+                            <p class="text-muted">LAFRIQUE Properties and our logos are trademarks of our company. You may not use our trademarks without our prior written permission.</p>
                         </div>
 
                         <!-- Disclaimer of Warranties -->
@@ -165,7 +165,7 @@
                         <!-- Indemnification -->
                         <div class="mb-5">
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">11. Indemnification</h2>
-                            <p class="text-muted">You agree to indemnify, defend, and hold harmless Property.com.ng, its affiliates, officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses arising from:</p>
+                            <p class="text-muted">You agree to indemnify, defend, and hold harmless LAFRIQUE Properties, its affiliates, officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses arising from:</p>
                             <ul class="text-muted">
                                 <li>Your use of the Platform</li>
                                 <li>Your violation of these Terms</li>
@@ -178,13 +178,13 @@
                         <div class="mb-5">
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">12. Dispute Resolution</h2>
                             <h5 class="fw-semibold mb-3">12.1 Governing Law</h5>
-                            <p class="text-muted">These Terms shall be governed by and construed in accordance with the laws of the Federal Republic of Nigeria.</p>
+                            <p class="text-muted">These Terms shall be governed by and construed in accordance with applicable international laws.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">12.2 Arbitration</h5>
-                            <p class="text-muted">Any dispute arising from these Terms shall be resolved through binding arbitration in accordance with the Arbitration and Conciliation Act of Nigeria.</p>
+                            <p class="text-muted">Any dispute arising from these Terms shall be resolved through binding arbitration in accordance with international arbitration standards.</p>
                             
                             <h5 class="fw-semibold mb-3 mt-4">12.3 Jurisdiction</h5>
-                            <p class="text-muted">The courts of Lagos, Nigeria shall have exclusive jurisdiction over any disputes that cannot be resolved through arbitration.</p>
+                            <p class="text-muted">Disputes that cannot be resolved through arbitration shall be subject to the jurisdiction of competent courts.</p>
                         </div>
 
                         <!-- Changes to Terms -->
@@ -198,10 +198,10 @@
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">14. Contact Information</h2>
                             <p class="text-muted">If you have any questions about these Terms, please contact us at:</p>
                             <div class="alert" style="background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); border: none; border-radius: 15px;">
-                                <p class="mb-2"><strong>Property.com.ng</strong></p>
-                                <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>Email: legal@property.com.ng</p>
+                                <p class="mb-2"><strong>LAFRIQUE Properties</strong></p>
+                                <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>Email: legal@propertieslafrique.com</p>
                                 <p class="mb-2"><i class="fas fa-phone text-primary me-2"></i>Phone: +234 XXX XXX XXXX</p>
-                                <p class="mb-0"><i class="fas fa-map-marker-alt text-primary me-2"></i>Address: Lagos, Nigeria</p>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt text-primary me-2"></i>Address: Africa</p>
                             </div>
                         </div>
                     </div>

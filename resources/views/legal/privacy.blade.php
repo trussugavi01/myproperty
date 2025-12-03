@@ -33,7 +33,7 @@
                         <!-- Introduction -->
                         <div class="mb-5">
                             <h2 class="fw-bold mb-3" style="color: #5568d3;">1. Introduction</h2>
-                            <p class="text-muted">Property.com.ng ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile applications, and services (collectively, the "Platform").</p>
+                            <p class="text-muted">LAFRIQUE Properties ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile applications, and services (collectively, the "Platform").</p>
                             <p class="text-muted">By using our Platform, you consent to the data practices described in this Privacy Policy. If you do not agree with this Privacy Policy, please do not use our Platform.</p>
                         </div>
 
@@ -261,11 +261,11 @@
                             <p class="text-muted">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
                             <div class="alert" style="background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); border: none; border-radius: 15px;">
                                 <p class="mb-2"><strong>Data Protection Officer</strong></p>
-                                <p class="mb-2"><strong>Property.com.ng</strong></p>
-                                <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>Email: privacy@property.com.ng</p>
-                                <p class="mb-2"><i class="fas fa-shield-alt text-primary me-2"></i>DPO Email: dpo@property.com.ng</p>
+                                <p class="mb-2"><strong>LAFRIQUE Properties</strong></p>
+                                <p class="mb-2"><i class="fas fa-envelope text-primary me-2"></i>Email: privacy@propertieslafrique.com</p>
+                                <p class="mb-2"><i class="fas fa-shield-alt text-primary me-2"></i>DPO Email: dpo@propertieslafrique.com</p>
                                 <p class="mb-2"><i class="fas fa-phone text-primary me-2"></i>Phone: +234 XXX XXX XXXX</p>
-                                <p class="mb-0"><i class="fas fa-map-marker-alt text-primary me-2"></i>Address: Lagos, Nigeria</p>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt text-primary me-2"></i>Address: Africa</p>
                             </div>
                         </div>
                     </div>

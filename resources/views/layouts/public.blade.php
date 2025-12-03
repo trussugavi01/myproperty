@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Property Listing Platform') }} - @yield('title', 'Find Your Dream Property')</title>
+    <title>{{ config('app.name', 'LAFRIQUE Properties') }} - @yield('title', 'Find Your Dream Property')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,13 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm public-navbar sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-                <span class="brand-icon d-inline-flex align-items-center justify-content-center me-2">
-                    <i class="fas fa-building text-primary"></i>
-                </span>
-                <div class="d-flex flex-column">
-                    <span class="fw-bold">Property.com.ng</span>
-                    <small class="text-muted d-none d-md-inline">Find and list properties across Nigeria</small>
-                </div>
+                <img src="{{ asset('images/logo/lafrique-logo.png') }}" alt="LAFRIQUE Properties" style="max-height: 50px; width: auto;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -70,11 +64,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">
-                        <i class="fas fa-building me-2"></i>
-                        PropertyNG
-                    </h5>
-                    <p class="text-white-50">Your trusted partner in finding the perfect property in Nigeria.</p>
+                    <img src="{{ asset('images/logo/lafrique-logo.png') }}" alt="LAFRIQUE Properties" class="mb-3" style="max-width: 200px; height: auto;">
+                    <p class="text-white-50">Your trusted partner in finding the perfect property in Africa.</p>
                 </div>
                 <div class="col-md-2 mb-4">
                     <h6 class="mb-3">Quick Links</h6>
@@ -102,7 +93,7 @@
                     <h6 class="mb-3">Contact</h6>
                     <p class="text-white-50 mb-2">
                         <i class="fas fa-envelope me-2"></i>
-                        info@property.com.ng
+                        info@propertieslafrique.com
                     </p>
                     <p class="text-white-50 mb-0">
                         <i class="fas fa-phone me-2"></i>
@@ -112,7 +103,7 @@
             </div>
             <hr class="border-secondary">
             <div class="text-center text-white-50">
-                <p class="mb-0">&copy; {{ date('Y') }} Property.com.ng. All rights reserved.</p>
+                <p class="mb-0">&copy; {{ date('Y') }} LAFRIQUE Properties. All rights reserved.</p>
             </div>
         </div>
     </footer>
