@@ -37,8 +37,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        // Send welcome email
-        Mail::to($user->email)->send(new WelcomeEmail($user));
+        // Send welcome email (queue it to prevent registration failure if email fails)
+        try {
+            Mail::to($user->email)->queue(new WelcomeEmail($user));
+        } catch (\Exception $e) {
+            // Log the error but don't prevent registration
+            \Log::error('Failed to send welcome email: ' . $e->getMessage());
+        }
 
         Auth::login($user);
 
