@@ -34,8 +34,13 @@ class BillingController extends Controller
     {
         $billingCycle = $request->get('cycle', 'monthly');
         $amount = $billingCycle === 'annual' ? $plan->price_annual : $plan->price_monthly;
+        
+        // Check if user is eligible for free trial
+        $user = $request->user();
+        $hasUsedTrial = $user->subscriptions()->where('is_trial', true)->exists();
+        $trialDays = !$hasUsedTrial ? ($plan->trial_days ?? 30) : 0;
 
-        return view('billing.checkout', compact('plan', 'billingCycle', 'amount'));
+        return view('billing.checkout', compact('plan', 'billingCycle', 'amount', 'trialDays', 'hasUsedTrial'));
     }
 
     public function subscribe(Request $request)
@@ -43,19 +48,45 @@ class BillingController extends Controller
         $request->validate([
             'plan_id' => 'required|exists:subscription_plans,id',
             'billing_cycle' => 'required|in:monthly,annual',
-            'payment_method' => 'required|in:card,bank_transfer,scan_to_pay',
+            'payment_method' => 'required|in:card,bank_transfer,scan_to_pay,trial',
         ]);
 
+        $user = auth()->user();
         $plan = SubscriptionPlan::findOrFail($request->plan_id);
         $amount = $request->billing_cycle === 'annual' ? $plan->price_annual : $plan->price_monthly;
 
-        // Create subscription
+        // Check if user is starting a free trial
+        $hasUsedTrial = $user->subscriptions()->where('is_trial', true)->exists();
+        $startTrial = $request->payment_method === 'trial' && !$hasUsedTrial;
+
+        if ($startTrial) {
+            // Create trial subscription
+            $trialDays = $plan->trial_days ?? 30;
+            
+            $subscription = Subscription::create([
+                'user_id' => $user->id,
+                'subscription_plan_id' => $plan->id,
+                'billing_cycle' => $request->billing_cycle,
+                'amount' => 0, // Free during trial
+                'status' => 'active',
+                'is_trial' => true,
+                'starts_at' => now(),
+                'trial_ends_at' => now()->addDays($trialDays),
+                'ends_at' => now()->addDays($trialDays),
+            ]);
+
+            return redirect()->route('billing.subscriptions')
+                ->with('success', "Your {$trialDays}-day free trial has started! Enjoy all {$plan->name} features.");
+        }
+
+        // Create paid subscription
         $subscription = Subscription::create([
-            'user_id' => auth()->id(),
+            'user_id' => $user->id,
             'subscription_plan_id' => $plan->id,
             'billing_cycle' => $request->billing_cycle,
             'amount' => $amount,
             'status' => 'pending',
+            'is_trial' => false,
             'starts_at' => now(),
             'ends_at' => $request->billing_cycle === 'annual' 
                 ? now()->addYear() 
@@ -64,7 +95,7 @@ class BillingController extends Controller
 
         // Create payment record
         $payment = Payment::create([
-            'user_id' => auth()->id(),
+            'user_id' => $user->id,
             'subscription_id' => $subscription->id,
             'transaction_reference' => 'TXN-' . strtoupper(Str::random(12)),
             'amount' => $amount,
@@ -88,13 +119,20 @@ class BillingController extends Controller
 
     public function subscriptions(Request $request)
     {
-        $subscriptions = $request->user()
-            ->subscriptions()
+        $user = $request->user();
+        
+        $activeSubscription = $user->subscriptions()
             ->with('plan')
+            ->where('status', 'active')
+            ->where('ends_at', '>', now())
+            ->first();
+
+        $payments = Payment::where('user_id', $user->id)
+            ->with('subscription.plan')
             ->latest()
             ->paginate(10);
 
-        return view('billing.subscriptions', compact('subscriptions'));
+        return view('billing.subscriptions', compact('activeSubscription', 'payments'));
     }
 
     public function cancel(Request $request, Subscription $subscription)

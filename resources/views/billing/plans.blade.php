@@ -47,6 +47,13 @@
                         <p class="text-muted small mt-2 mb-0">
                             <i class="fas fa-info-circle me-1"></i>or {{ $plan->formatted_price_annual }} annually
                         </p>
+                        @if($plan->trial_days > 0)
+                            <div class="mt-2">
+                                <span class="badge bg-success">
+                                    <i class="fas fa-gift me-1"></i>{{ $plan->trial_days }}-Day Free Trial
+                                </span>
+                            </div>
+                        @endif
                     </div>
 
                     <ul class="list-unstyled text-start mb-4">
@@ -94,13 +101,19 @@
                     </ul>
 
                     <div class="d-grid gap-2">
+                        @if($plan->trial_days > 0)
+                            <a href="{{ route('billing.checkout', ['plan' => $plan->id, 'cycle' => 'monthly']) }}" 
+                               class="btn btn-success btn-lg">
+                                <i class="fas fa-gift me-2"></i>Start Free Trial
+                            </a>
+                        @endif
                         <a href="{{ route('billing.checkout', ['plan' => $plan->id, 'cycle' => 'monthly']) }}" 
-                           class="btn {{ $plan->is_popular ? 'btn-primary' : 'btn-outline-primary' }} btn-lg">
-                            <i class="fas fa-calendar-alt me-2"></i>Select Monthly Plan
+                           class="btn {{ $plan->is_popular ? 'btn-primary' : 'btn-outline-primary' }} {{ $plan->trial_days > 0 ? '' : 'btn-lg' }}">
+                            <i class="fas fa-calendar-alt me-2"></i>Monthly Plan
                         </a>
                         <a href="{{ route('billing.checkout', ['plan' => $plan->id, 'cycle' => 'annual']) }}" 
                            class="btn btn-outline-secondary">
-                            <i class="fas fa-calendar-check me-2"></i>Select Annual Plan
+                            <i class="fas fa-calendar-check me-2"></i>Annual Plan (Save 17%)
                         </a>
                     </div>
                 </div>

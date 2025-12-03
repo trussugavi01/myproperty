@@ -93,57 +93,63 @@ class EssentialDataSeeder extends Seeder
     {
         $plans = [
             [
-                'name' => 'Basic',
-                'description' => 'Perfect for getting started',
-                'price_monthly' => 5000,
-                'price_annual' => 50000,
-                'max_listings' => 5,
-                'max_featured_listings' => 0,
+                'name' => 'Starter',
+                'description' => 'Perfect for individual agents getting started',
+                'price_monthly' => 15000,
+                'price_annual' => 150000,
+                'max_listings' => 10,
+                'max_featured_listings' => 1,
                 'priority_support' => false,
-                'analytics_access' => false,
+                'analytics_access' => true,
                 'api_access' => false,
-                'features' => json_encode(['5 Property Listings', 'Basic Support', 'Property Analytics']),
+                'features' => json_encode(['10 Property Listings', '1 Featured Listing', 'Basic Analytics', 'Email Support', '30-Day Free Trial']),
                 'is_active' => true,
                 'is_popular' => false,
+                'trial_days' => 30,
                 'order' => 1,
             ],
             [
-                'name' => 'Pro',
-                'description' => 'Most popular for professionals',
-                'price_monthly' => 15000,
-                'price_annual' => 150000,
-                'max_listings' => 20,
-                'max_featured_listings' => 3,
+                'name' => 'Professional',
+                'description' => 'Most popular for growing businesses',
+                'price_monthly' => 25000,
+                'price_annual' => 250000,
+                'max_listings' => 30,
+                'max_featured_listings' => 5,
                 'priority_support' => true,
                 'analytics_access' => true,
                 'api_access' => false,
-                'features' => json_encode(['20 Property Listings', '3 Featured Listings', 'Priority Support', 'Advanced Analytics', 'Lead Management']),
+                'features' => json_encode(['30 Property Listings', '5 Featured Listings', 'Advanced Analytics', 'Priority Support', 'Lead Management', '30-Day Free Trial']),
                 'is_active' => true,
                 'is_popular' => true,
+                'trial_days' => 30,
                 'order' => 2,
             ],
             [
                 'name' => 'Enterprise',
-                'description' => 'For large organizations',
+                'description' => 'For large agencies and developers',
                 'price_monthly' => 50000,
                 'price_annual' => 500000,
                 'max_listings' => 0,
-                'max_featured_listings' => 10,
+                'max_featured_listings' => 15,
                 'priority_support' => true,
                 'analytics_access' => true,
                 'api_access' => true,
-                'features' => json_encode(['Unlimited Listings', '10 Featured Listings', 'Priority Support', 'Advanced Analytics', 'API Access', 'Custom Branding', 'Dedicated Account Manager']),
+                'features' => json_encode(['Unlimited Listings', '15 Featured Listings', 'Advanced Analytics', 'Priority Support', 'API Access', 'Custom Branding', 'Dedicated Account Manager', '30-Day Free Trial']),
                 'is_active' => true,
                 'is_popular' => false,
+                'trial_days' => 30,
                 'order' => 3,
             ],
         ];
 
         foreach ($plans as $plan) {
-            SubscriptionPlan::firstOrCreate(
+            SubscriptionPlan::updateOrCreate(
                 ['name' => $plan['name']],
                 $plan
             );
         }
+
+        // Remove old plan names if they exist
+        SubscriptionPlan::whereIn('name', ['Basic', 'Pro'])->delete();
     }
 }

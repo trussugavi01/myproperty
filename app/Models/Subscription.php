@@ -17,6 +17,8 @@ class Subscription extends Model
         'status',
         'starts_at',
         'ends_at',
+        'trial_ends_at',
+        'is_trial',
         'cancelled_at',
     ];
 
@@ -26,6 +28,8 @@ class Subscription extends Model
             'amount' => 'decimal:2',
             'starts_at' => 'datetime',
             'ends_at' => 'datetime',
+            'trial_ends_at' => 'datetime',
+            'is_trial' => 'boolean',
             'cancelled_at' => 'datetime',
         ];
     }
@@ -63,6 +67,19 @@ class Subscription extends Model
         return $this->status === 'active' && $this->ends_at > now();
     }
 
+    public function isOnTrial(): bool
+    {
+        return $this->is_trial && $this->trial_ends_at && $this->trial_ends_at > now();
+    }
+
+    public function trialDaysRemaining(): int
+    {
+        if (!$this->isOnTrial()) {
+            return 0;
+        }
+        return now()->diffInDays($this->trial_ends_at);
+    }
+
     public function cancel()
     {
         $this->update([
@@ -76,6 +93,29 @@ class Subscription extends Model
         $this->update([
             'status' => 'active',
             'starts_at' => now(),
+        ]);
+    }
+
+    public function startTrial(int $days = 30)
+    {
+        $this->update([
+            'status' => 'active',
+            'is_trial' => true,
+            'starts_at' => now(),
+            'trial_ends_at' => now()->addDays($days),
+            'ends_at' => now()->addDays($days),
+        ]);
+    }
+
+    public function convertFromTrial()
+    {
+        $this->update([
+            'is_trial' => false,
+            'trial_ends_at' => null,
+            'starts_at' => now(),
+            'ends_at' => $this->billing_cycle === 'annual' 
+                ? now()->addYear() 
+                : now()->addMonth(),
         ]);
     }
 }

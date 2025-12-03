@@ -24,6 +24,7 @@ class SubscriptionPlan extends Model
         'features',
         'is_active',
         'is_popular',
+        'trial_days',
         'order',
     ];
 

@@ -7,10 +7,20 @@
 <div class="row">
     <div class="col-12">
         @if($activeSubscription)
-            <div class="card border-0 shadow-sm mb-4">
-                <div class="card-header bg-white border-0 py-3">
-                    <h5 class="mb-0">Active Subscription</h5>
-                </div>
+            <div class="card border-0 shadow-sm mb-4 {{ $activeSubscription->is_trial ? 'border-success' : '' }}" 
+                 style="{{ $activeSubscription->is_trial ? 'border: 2px solid #198754 !important;' : '' }} border-radius: 16px;">
+                @if($activeSubscription->is_trial)
+                    <div class="card-header bg-success text-white border-0 py-3" style="border-radius: 14px 14px 0 0;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-gift me-2"></i>Free Trial Active</h5>
+                            <span class="badge bg-white text-success">{{ $activeSubscription->trialDaysRemaining() }} days remaining</span>
+                        </div>
+                    </div>
+                @else
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0">Active Subscription</h5>
+                    </div>
+                @endif
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-8">
@@ -24,11 +34,19 @@
                                 </div>
                                 <div class="col-md-4">
                                     <small class="text-muted d-block">Amount</small>
-                                    <strong>{{ $activeSubscription->formatted_amount }}</strong>
+                                    @if($activeSubscription->is_trial)
+                                        <strong class="text-success">FREE (Trial)</strong>
+                                    @else
+                                        <strong>₦{{ number_format($activeSubscription->amount, 2) }}</strong>
+                                    @endif
                                 </div>
                                 <div class="col-md-4">
                                     <small class="text-muted d-block">Status</small>
-                                    <span class="badge bg-success">{{ ucfirst($activeSubscription->status) }}</span>
+                                    @if($activeSubscription->is_trial)
+                                        <span class="badge bg-success">Trial Active</span>
+                                    @else
+                                        <span class="badge bg-success">{{ ucfirst($activeSubscription->status) }}</span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -38,17 +56,31 @@
                                     <strong>{{ $activeSubscription->starts_at->format('F j, Y') }}</strong>
                                 </div>
                                 <div class="col-md-6">
-                                    <small class="text-muted d-block">Renews On</small>
+                                    <small class="text-muted d-block">{{ $activeSubscription->is_trial ? 'Trial Ends On' : 'Renews On' }}</small>
                                     <strong>{{ $activeSubscription->ends_at->format('F j, Y') }}</strong>
                                 </div>
                             </div>
+
+                            @if($activeSubscription->is_trial)
+                                <div class="alert alert-warning mt-3 mb-0">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Your trial will end on {{ $activeSubscription->trial_ends_at->format('F j, Y') }}. 
+                                    <a href="{{ route('billing.plans') }}" class="alert-link">Upgrade now</a> to continue using all features.
+                                </div>
+                            @endif
                         </div>
                         <div class="col-md-4 text-end">
+                            @if($activeSubscription->is_trial)
+                                <a href="{{ route('billing.checkout', ['plan' => $activeSubscription->plan->id, 'cycle' => $activeSubscription->billing_cycle]) }}" 
+                                   class="btn btn-success mb-2">
+                                    <i class="fas fa-arrow-up me-2"></i>Upgrade Now
+                                </a>
+                            @endif
                             <form method="POST" action="{{ route('billing.subscriptions.cancel', $activeSubscription) }}" 
                                   onsubmit="return confirm('Are you sure you want to cancel your subscription?')">
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger">
-                                    <i class="fas fa-times me-2"></i>Cancel Subscription
+                                    <i class="fas fa-times me-2"></i>Cancel {{ $activeSubscription->is_trial ? 'Trial' : 'Subscription' }}
                                 </button>
                             </form>
                         </div>
