@@ -13,8 +13,8 @@
                         <div class="mb-4">
                             <i class="fas fa-building" style="font-size: 5rem; opacity: 0.9;"></i>
                         </div>
-                        <h2 class="fw-bold mb-3 text-center">Property.com.ng</h2>
-                        <p class="text-center opacity-75 mb-4">Your trusted platform for buying, selling, and renting properties across Nigeria.</p>
+                        <h2 class="fw-bold mb-3 text-center">LAFRIQUE Properties</h2>
+                        <p class="text-center opacity-75 mb-4">Your trusted platform for buying, selling, and renting properties across Africa.</p>
                         <div class="text-center">
                             <div class="mb-3">
                                 <i class="fas fa-check-circle me-2"></i>
